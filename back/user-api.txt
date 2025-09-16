@@ -1,0 +1,26 @@
+4. 用户搜索
+请求方式: GET
+URL: /user/search
+参数说明:
+- username: 搜索关键词(可选)
+- limit: 返回结果数量限制(默认10)
+
+响应:
+{
+    "code": "0",
+    "msg": "success",
+    "data": [
+        {
+            "id": 1,
+            "username": "zhangsan",
+            "name": "张三",
+            "avatar": "avatar.jpg",
+            "role": "USER",
+            "sex": "男",
+            "phone": "13800138000",
+            "email": "zhangsan@example.com",
+            "address": "北京市",
+            "account": 1000.00
+        }
+    ]
+} 

@@ -1,0 +1,35 @@
+1.7 分页查询动物
+请求方式: GET
+URL: /animal/page
+参数说明:
+- name: 动物名称(可选)
+- type: 动物类型(可选)
+- currentPage: 当前页码(默认1)
+- size: 每页条数(默认10)
+
+示例: /animal/page?name=小白&type=猫&currentPage=1&size=10
+响应:
+{
+    "code": "0",
+    "msg": "success",
+    "data": {
+        "records": [
+            {
+                "id": 1,
+                "name": "小白",
+                "type": "猫",
+                "age": 2,
+                "sex": "公",
+                "color": "白色",
+                "description": "一只可爱的小猫",
+                "createTime": "2024-01-01 12:00:00",
+                "updateTime": "2024-01-01 12:00:00",
+                "userId": 1,
+                "status": "normal"
+            }
+        ],
+        "total": 100,
+        "size": 10,
+        "current": 1
+    }
+} 

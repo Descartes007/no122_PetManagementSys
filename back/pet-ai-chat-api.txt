@@ -1,0 +1,50 @@
+PetAiChat API 接口文档
+
+1. 宠物AI聊天接口
+URL: /api/pet/chat
+Method: POST
+描述: 与指定宠物进行AI对话
+
+请求参数:
+- userId: Integer, 必填, 用户ID
+- petId: Integer, 必填, 宠物ID
+- message: String, 必填, 用户发送的消息内容
+
+响应数据:
+{
+    "id": Long,            // 聊天记录ID
+    "userId": Integer,     // 用户ID
+    "petId": Integer,      // 宠物ID
+    "message": String,     // 用户发送的消息
+    "response": String,    // AI的回复内容
+    "createdAt": DateTime  // 创建时间
+}
+
+错误码:
+- 404: 宠物不存在
+- 500: AI服务调用失败
+
+示例:
+请求:
+POST /api/pet/chat
+{
+    "userId": 1,
+    "petId": 2,
+    "message": "你今天吃了吗？"
+}
+
+成功响应:
+{
+    "id": 1,
+    "userId": 1,
+    "petId": 2,
+    "message": "你今天吃了吗？",
+    "response": "喵~ 主人我已经吃过了，早上吃了美味的猫粮，现在正在想下午茶呢！",
+    "createdAt": "2024-03-21T14:30:00"
+}
+
+注意事项:
+1. 接口调用需要用户登录授权
+2. 每个用户每分钟最多发送10条消息
+3. 单条消息长度不超过200字
+4. AI回复内容会根据宠物的特征（品种、性格等）进行个性化生成 
